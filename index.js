@@ -24,7 +24,10 @@ module.exports = (app) => {
 
   app.on("issues.opened", async (context) => {
     const issueComment = context.issue({
-      body: "Hi, this is CuwoN LiBy :cowboy_hat_face:\nThanks for opening this issue!\n\nCurrently I\'m still under development\nTo contribute, please contact Ayush Patel !!!",
+      body: "Hi, this is CuwoN LiBy :cowboy_hat_face:\n" +
+	    "Thanks for opening this issue!\n\n" +
+	    "Currently I\'m still under development\n" +
+	    "To contribute, please contact Ayush Patel !!!",
     });
     return context.octokit.issues.createComment(issueComment);
   });
