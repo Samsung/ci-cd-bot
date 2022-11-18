@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-/**
+/*
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Probot} app
  */
 module.exports = (app) => {
   // Your code here
-  app.log.info("Yay, the app was loaded!");
+  app.log.info('Yay, the app was loaded!');
 
-  app.on("issues.opened", async (context) => {
+  app.on('issues.opened', async (context) => {
     const issueComment = context.issue({
-      body: "Hi, this is CuwoN LiBy :cowboy_hat_face:\n" +
-	    "Thanks for opening this issue!\n\n" +
-	    "Currently I\'m still under development\n" +
-	    "To contribute, please contact Ayush Patel !!!",
+      body: 'Hi, this is CuwoN LiBy :cowboy_hat_face:\n' +
+            'Thanks for opening this issue!\n\n' +
+            'Currently I\'m still under development\n' +
+            'To contribute, please contact Ayush Patel !!!',
     });
     return context.octokit.issues.createComment(issueComment);
   });
