@@ -1,6 +1,6 @@
 # ci-cd-bot
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A CI/CD bot which can be integrated with GitHub (public as well as enterprise) with ease and flexibility
+> A GitHub App built with [Probot](https://github.com/probot/probot) that is a CI/CD bot which can be integrated with GitHub (public as well as enterprise) with ease and flexibility
 
 ## Setup
 
