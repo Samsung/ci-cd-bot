@@ -18,6 +18,9 @@
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Probot} app
  */
+
+const commands = require('probot-commands')
+
 module.exports = (app) => {
   // Your code here
   app.log.info('Yay, the app was loaded!');
@@ -30,6 +33,41 @@ module.exports = (app) => {
             'To contribute, please contact Ayush Patel !!!',
     });
     return context.octokit.issues.createComment(issueComment);
+  });
+
+  commands(app, 'help', (context, command) => {
+    if (command.arguments == null) {
+      const helpComment = context.issue({
+        body: 'Hi, this is CuwoN LiBy\'s help section !\n\n' +
+              '\n' +
+              'Usage:\n' +
+              '```\n' +
+              'help            Show help section\n' +
+              'help COMMAND    Show help for COMMAND\n' +
+              '```\n' +
+              '\n' +
+              'Currently I\'m still under development\n' +
+              'To contribute, please contact Ayush Patel !!!',
+      });
+      return context.octokit.issues.createComment(helpComment);
+    } else {
+      const args = command.arguments.split(' ');
+      const helpComment = context.issue({
+        body: 'Hi, this is CuwoN LiBy\'s help section !\n\n' +
+              '\n' +
+              'Command `' + args[0] + '` not found.\n' +
+              '\n' +
+              'Usage:\n' +
+              '```\n' +
+              'help            Show help section\n' +
+              'help COMMAND    Show help for COMMAND\n' +
+              '```\n' +
+              '\n' +
+              'Currently I\'m still under development\n' +
+              'To contribute, please contact Ayush Patel !!!',
+      });
+      return context.octokit.issues.createComment(helpComment);
+    }
   });
 
   // For more information on building apps:
